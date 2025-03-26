@@ -1,23 +1,17 @@
 {
-  "name": "server",
+  "name": "beriah-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  {
-  "name": "server",
-  "version": "1.0.0",
+  "description": "Server with indefinite synergy, Grok as primary, scaffolding, commit/push, short answers, no placeholders",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^4.21.2"
+    "axios": "^1.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.21.2",
+    "openai": "^3.2.1",
+    "uuid": "^9.0.0"
   }
 }

@@ -1,13 +1,119 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* client/src/index.css */
+
+/* 1) Import Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 2) Global font stack – tries to mimic iOS feel */
+:root {
+  --font-family-ios: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+    "Apple Color Emoji", "Helvetica", "Arial", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 3) Apply the iOS-like font to body (or the entire app) */
+body {
+  font-family: var(--font-family-ios);
+  background-color: #f3f3f3; /* a light gray background, iOS-like */
+  color: #111;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* 4) Hide or style scrollbars for a more iOS feel */
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.2) transparent;
+}
+
+/* 5) Keyframes for the triple-dot typing bubble */
+@keyframes bounce200 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes bounce400 {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* 6) Classes for .animate-bounce200, .animate-bounce400 – used in ChatWindow */
+.animate-bounce200 {
+  animation: bounce200 1s infinite 0.2s;
+}
+.animate-bounce400 {
+  animation: bounce400 1s infinite 0.4s;
+}
+
+/* 7) Optional bubble animations or transitions */
+@keyframes bubble-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.bubble-in {
+  animation: bubble-in 0.15s ease-out forwards;
+}
+
+/* 8) A subtle background for the chat container, if you want a near-white instead of pure white */
+.chat-bg {
+  background: #fafafa;
+}
+
+/* 9) Optional translucent style for top bars or footers */
+.translucent-bar {
+  @apply backdrop-blur-sm bg-white/70;
+}
+
+/* 10) Hover states for advanced iMessage illusions (like reaction "tapbacks") */
+.msg-bubble:hover .reaction-button {
+  display: block;
+}
+
+/* 11) If you want a large iOSlike text scale for headlines, optional: */
+/* h1, h2, etc. can get special classes from Tailwind. Not strictly needed here. */
+
+/* 12) If you want a subtle border to mimic iOS's separator lines, optional: */
+.separator-line {
+  @apply border-t border-gray-300;
+}
+
+/* 13) If you do a "pull-down" effect, you might do something with overscroll-behavior or "pull to refresh" – advanced usage. Not provided by default, but you can do: */
+.overscroll-touch {
+  overscroll-behavior: contain;
+}
+
+/* 
+** That’s it! 
+** We combined Tailwind's base, components, utilities with custom 
+** iPhone illusions: keyframes, bubble animation, scrollbar changes, 
+** translucent bars, and a system-like font stack. 
+** Adjust them as you see fit for your brand or theme.
+*/
