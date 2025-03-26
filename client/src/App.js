@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { MessageList } from 'react-chat-elements';
+import 'react-chat-elements/dist/main.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ width: '400px', margin: '0 auto', marginTop: '2rem' }}>
+      <MessageList
+        className="message-list"
+        lockable={true}
+        toBottomHeight={'100%'}
+        dataSource={[
+          {
+            position: 'left',
+            type: 'text',
+            text: 'Hello, I am ChatGPT!',
+            date: new Date(),
+          },
+          {
+            position: 'right',
+            type: 'text',
+            text: 'Hello, I am Grok!',
+            date: new Date(),
+          },
+        ]}
+      />
     </div>
   );
 }
