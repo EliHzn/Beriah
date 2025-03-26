@@ -1,0 +1,18 @@
+/* src/App.css */
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dadbd3;
+    height: 100vh;
+  }
+  
+  .app__body {
+    display: flex;
+    width: 90%;
+    max-width: 1400px;
+    height: 90vh;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    background-color: #ffffff;
+  }
+  

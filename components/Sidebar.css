@@ -1,0 +1,29 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    flex: 0.3; /* 30% of the screen width in the parent layout */
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ccc;
+    background-color: #fff;
+  }
+  
+  .sidebar__header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background-color: #ededed;
+  }
+  
+  .sidebar__chatList {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .sidebar__chatItem {
+    padding: 20px;
+    border-bottom: 1px solid #f6f6f6;
+    cursor: pointer;
+  }
+  .sidebar__chatItem:hover {
+    background-color: #f1f1f1;
+  }
+  
